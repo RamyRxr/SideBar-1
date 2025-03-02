@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="top">
+            <span class="logo">
+                <img src="ramyrxr.png" alt="RamyRXR" class="logo-img">
+                <h2>RamyRxr</h2>
+            </span>
+            <button id="toggle-btn">
+                <i class='bx bx-menu'></i>
+            </button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-box">
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Search..." id="search-input">
+        </div>
+
+        <ul class="menu">
+            <li>
+                <a href="#">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">User</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-message'></i>
+                    <span class="links_name">Messages</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-line-chart'></i>
+                    <span class="links_name">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-folder'></i>
+                    <span class="links_name">File Manager</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cart'></i>
+                    <span class="links_name">Order</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Saved</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="profile">
+            <div class="profile-details">
+                <img src="ramyrxr.png" alt="RamyRXR">
+                <div class="info">
+                    <span>RamyRxr</span>
+                    <small>Developer</small>
+                </div>
+            </div>
+            <div class="logout-wrapper">
+                <i class='bx bx-log-out'></i>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
