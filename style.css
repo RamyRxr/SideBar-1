@@ -132,7 +132,7 @@ body {
     color: #000000;
     font-size: 20px;
     min-width: 30px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .menu li a:hover i {
