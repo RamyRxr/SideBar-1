@@ -1,10 +1,15 @@
 /* Color Variables - Add these at the top of your CSS file */
 :root {
     --light-bg: #E1E3E9;
-    --dark-bg: #0F0F12;
-    --dark-sidebar: #E1E3E9;
-    --light-sidebar: #0F0F12;
+    --dark-bg: #000012;
     --body-bg: #0F0F12;
+
+    /* Adding more color variables for consistency */
+    --text-light: #FFFFFF;
+    --text-dark: #222222;
+    --accent: #2196F3;
+    --accent-dark: #4a90e2;
+    --danger: #ff0000;
 }
 
 * {
@@ -21,7 +26,7 @@ body {
 
 .sidebar {
     width: 220px;
-    background: var(--light-sidebar);
+    background: var(--light-bg);
     height: calc(100vh - 40px);
     transition: all 0.3s ease;
     overflow: hidden;
@@ -31,6 +36,8 @@ body {
     box-shadow:
         0 4px 12px rgba(0, 0, 0, 0.1),
         0 8px 24px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+    /* Added z-index */
 }
 
 /* Top Section */
@@ -39,7 +46,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    border-bottom: 1px solid var(--dark-bg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .sidebar .logo {
@@ -54,7 +61,7 @@ body {
 }
 
 .sidebar .logo h2 {
-    color: var(--dark-bg);
+    color: var(--text-dark);
     font-size: 18px;
 }
 
@@ -65,7 +72,7 @@ body {
 }
 
 #toggle-btn i {
-    color: var(--dark-bg);
+    color: var(--text-dark);
     font-size: 22px;
     transition: transform 0.3s ease;
 }
@@ -86,7 +93,8 @@ body {
 }
 
 .search-box i {
-    color: var(--dark-bg);
+    color: var(--text-dark);
+    /* Fixed color */
     margin-right: 10px;
     font-size: 20px;
 }
@@ -99,7 +107,7 @@ body {
 }
 
 .search-box:hover i {
-    color: #2196F3;
+    color: var(--accent);
 }
 
 .search-box input {
@@ -107,12 +115,11 @@ body {
     outline: none;
     background: none;
     width: 100%;
-    color: var(--dark-bg);
+    color: var(--text-dark);
+    /* Fixed color */
 }
 
 /* Menu Items */
-
-
 .menu li {
     list-style: none;
     margin: 2px 8px;
@@ -149,7 +156,8 @@ body {
 
 /* Update existing icon styles */
 .menu li a i {
-    color: white;
+    color: var(--dark-bg);
+    /* #000012 - dark text for light mode */
     font-size: 20px;
     min-width: 30px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -161,7 +169,8 @@ body {
 }
 
 .menu li a .links_name {
-    color: white;
+    color: var(--dark-bg);
+    /* #000012 - dark text for light mode */
     margin-left: 10px;
     transition: color 0.3s ease;
 }
@@ -191,8 +200,8 @@ body {
     bottom: 0;
     width: 100%;
     padding: 12px 15px;
-    background: var(--light-sidebar);
-    border-top: 1px solid var(--dark-bg);
+    background: var(--light-bg);
+    border-top: 1px solid var(--light-bg);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -219,6 +228,7 @@ body {
 
 .profile-details .info span {
     color: var(--dark-bg);
+    /* Dark text in light mode */
     font-weight: 500;
     font-size: 14px;
 }
@@ -230,6 +240,7 @@ body {
 
 .logout-wrapper i {
     color: var(--dark-bg);
+    /* Dark text in light mode */
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -377,27 +388,29 @@ body {
 /* Dark Mode */
 
 body.dark-mode .sidebar {
-    background: var(--dark-sidebar);
+    background: var(--dark-bg);
 }
 
 body.dark-mode .sidebar .top {
     border-bottom: 1px solid var(--light-bg);
 }
 
-.dark-mode #toggle-btn i.dark-mode {
+body.dark-mode .sidebar .logo h2 {
     color: var(--light-bg);
+    /* Change from black to light color */
+}
+
+body.dark-mode #toggle-btn i {
+    color: var(--light-bg);
+    /* Change from black to light color */
     font-size: 22px;
     transition: transform 0.3s ease;
 }
 
-.sidebar .logo h2.dark-mode {
-    color: var(--light-bg);
-    font-size: 18px;
-}
-
 body.dark-mode .menu li a span,
 body.dark-mode .menu li a i {
-    color: black;
+    color: var(--light-bg);
+    /* #E1E3E9 - light text for dark mode */
 }
 
 body.dark-mode .menu li a:hover,
@@ -412,8 +425,13 @@ body.dark-mode .menu li.active a i {
 }
 
 body.dark-mode .profile {
-    background: var(--dark-sidebar);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--dark-bg);
+    border-top: 1px solid var(--light-bg);
+}
+
+body.dark-mode .profile-details .info span {
+    color: var(--light-bg);
+    /* Light text in dark mode */
 }
 
 body.dark-mode .theme-toggle button {
@@ -421,7 +439,8 @@ body.dark-mode .theme-toggle button {
 }
 
 body.dark-mode .logout-wrapper i {
-    color: black;
+    color: var(--light-bg);
+    /* Light text in dark mode */
 }
 
 #theme-toggle {
@@ -431,4 +450,3 @@ body.dark-mode .logout-wrapper i {
 body.dark-mode #theme-toggle {
     color: white;
 }
-
