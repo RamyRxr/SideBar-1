@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.querySelector(".sidebar");
     const searchIcon = document.querySelector(".search-box i");
     const searchInput = document.getElementById("search-input");
+    const menuItems = document.querySelectorAll('.menu li');
 
     // Toggle sidebar
     toggleBtn.addEventListener("click", function () {
@@ -17,5 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 searchInput.focus();
             }, 300);
         }
+    });
+
+    // Add click event for menu items
+    menuItems.forEach(item => {
+        item.addEventListener('click', function () {
+            // Remove active class from all items
+            menuItems.forEach(i => i.classList.remove('active'));
+            // Add active class to clicked item
+            this.classList.add('active');
+        });
     });
 });
