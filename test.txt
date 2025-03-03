@@ -1,3 +1,64 @@
+<li>
+                <a href="#" id="theme-toggle">
+                    <div class="icon-container">
+                        <i class='bx bx-moon'></i>
+                    </div>
+                    <span class="links_name">Theme</span>
+                </a>
+            </li>
+
+
+
+
+
+            /* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode .sidebar {
+    background: #1a1a2e;
+}
+
+body.dark-mode .menu li a {
+    color: white;
+}
+
+body.dark-mode .menu li a:hover,
+body.dark-mode .menu li.active a {
+    background: rgba(74, 144, 226, 0.1);
+    border-left: 3px solid #4a90e2;
+}
+
+body.dark-mode .menu li a:hover .icon-container i,
+body.dark-mode .menu li.active a .icon-container i {
+    color: #4a90e2;
+}
+
+body.dark-mode .profile {
+    background: #1a1a2e;
+}
+
+body.dark-mode .theme-toggle button {
+    color: white;
+}
+
+body.dark-mode .logout-wrapper i {
+    color: white;
+}
+
+#theme-toggle {
+    cursor: pointer;
+}
+
+body.dark-mode #theme-toggle {
+    color: white;
+}
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.getElementById("toggle-btn");
     const sidebar = document.querySelector(".sidebar");
@@ -7,15 +68,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const themeToggle = document.getElementById("theme-toggle");
     const body = document.body;
 
-    // Toggle sidebar
-    toggleBtn.addEventListener("click", function () {
-        sidebar.classList.toggle("collapsed");
-    });
-
+    // Load theme from localStorage
     if (localStorage.getItem("theme") === "dark") {
         body.classList.add("dark-mode");
         themeToggle.innerHTML = "<i class='bx bx-sun'></i>";
     }
+
+    // Toggle sidebar
+    toggleBtn.addEventListener("click", function () {
+        sidebar.classList.toggle("collapsed");
+    });
 
     // Handle search icon click
     searchIcon.addEventListener("click", function () {
@@ -30,9 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add click event for menu items
     menuItems.forEach(item => {
         item.addEventListener('click', function () {
-            // Remove active class from all items
             menuItems.forEach(i => i.classList.remove('active'));
-            // Add active class to clicked item
             this.classList.add('active');
         });
     });

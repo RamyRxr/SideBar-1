@@ -1,3 +1,12 @@
+/* Color Variables - Add these at the top of your CSS file */
+:root {
+    --light-bg: #E1E3E9;
+    --dark-bg: #0F0F12;
+    --dark-sidebar: #E1E3E9;
+    --light-sidebar: #0F0F12;
+    --body-bg: #0F0F12;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,12 +16,12 @@
 
 body {
     display: flex;
-    background-color: #f4f4f4;
+    background-color: var(--body-bg);
 }
 
 .sidebar {
     width: 220px;
-    background: #ffffff;
+    background: var(--light-sidebar);
     height: calc(100vh - 40px);
     transition: all 0.3s ease;
     overflow: hidden;
@@ -30,7 +39,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--dark-bg);
 }
 
 .sidebar .logo {
@@ -45,7 +54,7 @@ body {
 }
 
 .sidebar .logo h2 {
-    color: #000000;
+    color: var(--dark-bg);
     font-size: 18px;
 }
 
@@ -56,7 +65,7 @@ body {
 }
 
 #toggle-btn i {
-    color: #000000;
+    color: var(--dark-bg);
     font-size: 22px;
     transition: transform 0.3s ease;
 }
@@ -71,15 +80,26 @@ body {
     align-items: center;
     margin: 15px;
     padding: 10px;
-    background: #f5f5f5;
+    background: #cbcaca65;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
 .search-box i {
-    color: #000000;
+    color: var(--dark-bg);
     margin-right: 10px;
     font-size: 20px;
+}
+
+.search-box:hover {
+    background: #ffffff;
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.search-box:hover i {
+    color: #2196F3;
 }
 
 .search-box input {
@@ -87,14 +107,11 @@ body {
     outline: none;
     background: none;
     width: 100%;
-    color: #000000;
+    color: var(--dark-bg);
 }
 
 /* Menu Items */
-.menu {
-    margin-top: 20px;
-    margin-bottom: 70px;
-}
+
 
 .menu li {
     list-style: none;
@@ -103,16 +120,11 @@ body {
     /* Add spacing between menu items */
 }
 
-/* To remove margin from last item to maintain proper spacing with profile section */
-.menu li:last-child {
-    margin-bottom: 2px;
-}
 
 .menu li a {
     display: flex;
     align-items: center;
     padding: 15px;
-    /* Changed from 12px 15px to equal padding all around */
     text-decoration: none;
     transition: all 0.3s ease;
     border-left: 3px solid transparent;
@@ -123,7 +135,6 @@ body {
 
 .menu li a:hover {
     background: rgba(0, 0, 0, 0.04);
-    /* Subtle grey background */
     border-left: 3px solid #2196F3;
     box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.08),
@@ -138,11 +149,10 @@ body {
 
 /* Update existing icon styles */
 .menu li a i {
-    color: #000000;
+    color: white;
     font-size: 20px;
     min-width: 30px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    /* Smooth easing */
 }
 
 .menu li a:hover i {
@@ -151,7 +161,7 @@ body {
 }
 
 .menu li a .links_name {
-    color: #000000;
+    color: white;
     margin-left: 10px;
     transition: color 0.3s ease;
 }
@@ -181,8 +191,8 @@ body {
     bottom: 0;
     width: 100%;
     padding: 12px 15px;
-    background: #ffffff;
-    border-top: 1px solid #f0f0f0;
+    background: var(--light-sidebar);
+    border-top: 1px solid var(--dark-bg);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -208,7 +218,7 @@ body {
 }
 
 .profile-details .info span {
-    color: #000000;
+    color: var(--dark-bg);
     font-weight: 500;
     font-size: 14px;
 }
@@ -219,7 +229,7 @@ body {
 }
 
 .logout-wrapper i {
-    color: #000000;
+    color: var(--dark-bg);
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -363,3 +373,62 @@ body {
     transform: scale(0.95);
     transition: transform 0.1s;
 }
+
+/* Dark Mode */
+
+body.dark-mode .sidebar {
+    background: var(--dark-sidebar);
+}
+
+body.dark-mode .sidebar .top {
+    border-bottom: 1px solid var(--light-bg);
+}
+
+.dark-mode #toggle-btn i.dark-mode {
+    color: var(--light-bg);
+    font-size: 22px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar .logo h2.dark-mode {
+    color: var(--light-bg);
+    font-size: 18px;
+}
+
+body.dark-mode .menu li a span,
+body.dark-mode .menu li a i {
+    color: black;
+}
+
+body.dark-mode .menu li a:hover,
+body.dark-mode .menu li.active a {
+    background: rgba(74, 144, 226, 0.1);
+    border-left: 3px solid #4a90e2;
+}
+
+body.dark-mode .menu li a:hover i,
+body.dark-mode .menu li.active a i {
+    color: #4a90e2;
+}
+
+body.dark-mode .profile {
+    background: var(--dark-sidebar);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .theme-toggle button {
+    color: white;
+}
+
+body.dark-mode .logout-wrapper i {
+    color: black;
+}
+
+#theme-toggle {
+    cursor: pointer;
+}
+
+body.dark-mode #theme-toggle {
+    color: white;
+}
+
