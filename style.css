@@ -259,6 +259,10 @@ body {
     justify-content: center;
 }
 
+.logout-wrapper a:hover {
+    color: red;
+}
+
 /* Specifically for the logout wrapper links */
 .logout-wrapper a {
     display: flex;
